@@ -1,0 +1,19 @@
+.clip-player {
+  position: absolute;
+  inset: 0;
+  background: #000;
+  overflow: hidden;
+}
+
+.clip-player video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+}
+
+.clip-player video.is-active { opacity: 1; }
+
+.clip-player.is-black video { opacity: 0; transition: opacity var(--duration-slow) var(--ease-in-out); }

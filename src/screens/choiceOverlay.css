@@ -1,0 +1,65 @@
+.choice-overlay {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: clamp(40px, 12vh, 140px) var(--gutter) clamp(18px, 4vh, 40px);
+  display: grid;
+  gap: clamp(14px, 2.5vh, 26px);
+  justify-items: center;
+  background: linear-gradient(0deg, rgb(4 6 10 / 0.94) 0%, rgb(4 6 10 / 0.6) 55%, transparent 100%);
+  z-index: 18;
+  animation: choice-in 520ms var(--ease-out-expo);
+}
+
+.choice-prompt {
+  margin: 0;
+  max-width: 900px;
+  text-align: center;
+  font-family: var(--font-display);
+  font-size: var(--text-title);
+  font-weight: 500;
+  font-style: italic;
+  line-height: 1.05;
+  text-wrap: balance;
+}
+
+.choice-row {
+  width: min(100%, 980px);
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 16px;
+}
+
+.choice-row .side-right { justify-self: end; }
+
+.choice-or {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: var(--text-sub);
+  color: var(--text-dim);
+}
+
+.choice-clock {
+  width: min(100%, 980px);
+  height: 2px;
+  background: color-mix(in oklch, var(--text) 12%, transparent);
+  overflow: hidden;
+}
+
+.choice-clock span {
+  display: block;
+  height: 100%;
+  background: var(--moon-dim);
+  transform-origin: left;
+  animation: clock linear forwards;
+}
+
+@keyframes clock { from { transform: scaleX(1); } to { transform: scaleX(0); } }
+@keyframes choice-in { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: none; } }
+
+@media (max-width: 640px) {
+  .choice-row { grid-template-columns: 1fr; justify-items: center; }
+  .choice-row .side-right, .choice-row .side-left { justify-self: center; }
+}

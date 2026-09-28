@@ -1,0 +1,62 @@
+.film-screen { position: absolute; inset: 0; overflow: hidden; background: #000; }
+
+/* the passive layer grades the picture: fear drains color and closes a vignette, joy warms it */
+.film-stage {
+  --fear: 0;
+  --joy: 0;
+  position: absolute;
+  inset: 0;
+  filter:
+    saturate(calc(1 - var(--fear) * 0.45 + var(--joy) * 0.15))
+    brightness(calc(1 - var(--fear) * 0.18))
+    sepia(calc(var(--joy) * 0.25));
+  transition: filter 1.2s linear;
+}
+
+.film-grade {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(ellipse at center, transparent 35%, rgb(0 0 0 / 0.85) 100%);
+  opacity: calc(0.35 + var(--fear) * 0.65);
+  transition: opacity 1.2s linear;
+}
+
+.letterbox {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: max(0px, calc((100vh - 100vw / 2.39) / 2));
+  background: #000;
+  z-index: 12;
+  pointer-events: none;
+}
+.letterbox.top { top: 0; }
+.letterbox.bottom { bottom: 0; }
+
+.knock {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  z-index: 30;
+  pointer-events: none;
+  animation: knock-flash 2.6s var(--ease-out-expo) forwards;
+}
+
+.knock p {
+  margin: 0;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: var(--text-title);
+  text-shadow: 0 4px 30px rgb(0 0 0);
+}
+
+@keyframes knock-flash {
+  0% { background: rgb(255 240 220 / 0.35); opacity: 1; }
+  12% { background: transparent; }
+  80% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+@media (max-aspect-ratio: 4/3) { .letterbox { display: none; } }

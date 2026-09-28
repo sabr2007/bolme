@@ -1,0 +1,46 @@
+.gesture-option {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  color: var(--text);
+  transition: transform var(--duration-normal) var(--ease-out-expo), opacity var(--duration-normal);
+}
+
+.gesture-option.side-right { flex-direction: row-reverse; text-align: right; }
+.gesture-option.side-center { flex-direction: column; text-align: center; }
+.gesture-option.state-holding { transform: scale(1.06); }
+
+.gesture-ring { position: relative; width: 80px; height: 80px; flex: none; }
+.gesture-ring svg { position: absolute; inset: 0; transform: rotate(-90deg); }
+.gesture-ring circle { fill: none; }
+.ring-track { stroke: color-mix(in oklch, var(--text) 18%, transparent); stroke-width: 2; }
+.ring-progress {
+  stroke: var(--moon); stroke-width: 2; opacity: 0.8;
+  transition: stroke-dashoffset 120ms linear;
+}
+.ring-hold {
+  stroke: var(--amber); stroke-width: 5; stroke-linecap: round;
+  filter: drop-shadow(0 0 6px color-mix(in oklch, var(--amber) 70%, transparent));
+  transition: stroke-dashoffset 90ms linear;
+}
+.gesture-glyph {
+  position: absolute; inset: 0; display: grid; place-items: center;
+  color: var(--text-dim);
+  transition: color var(--duration-fast);
+}
+.state-trying .gesture-glyph { color: var(--moon); }
+.state-holding .gesture-glyph { color: var(--amber); }
+
+.gesture-text { display: flex; flex-direction: column; gap: 2px; }
+.gesture-meaning {
+  font-family: var(--font-display);
+  font-size: clamp(1.3rem, 1rem + 1vw, 1.9rem);
+  font-weight: 600;
+  line-height: 1.05;
+}
+.gesture-how {
+  font-size: var(--text-xs);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+}

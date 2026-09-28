@@ -1,0 +1,98 @@
+.title-screen {
+  position: relative;
+  min-height: 100%;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  align-items: end;
+  padding: var(--gutter);
+  overflow: hidden;
+}
+
+.title-poster {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, var(--ink-950) 8%, color-mix(in oklch, var(--ink-950) 70%, transparent) 42%, transparent 75%),
+    linear-gradient(0deg, var(--ink-950) 0%, transparent 45%),
+    url('/poster.jpg') center right / cover no-repeat;
+  animation: poster-drift 24s var(--ease-in-out) infinite alternate;
+}
+
+@keyframes poster-drift {
+  from { transform: scale(1.04) translateX(0); }
+  to { transform: scale(1.1) translateX(-1.5%); }
+}
+
+.title-copy {
+  position: relative;
+  max-width: 620px;
+  padding-bottom: clamp(8px, 4vh, 48px);
+}
+
+.title-kicker {
+  margin: 0 0 18px;
+  font-size: var(--text-xs);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--amber);
+}
+
+.title-copy h1 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: var(--text-hero);
+  font-weight: 600;
+  line-height: 0.86;
+  letter-spacing: -0.02em;
+}
+
+.title-lede {
+  margin: 26px 0 30px;
+  max-width: 52ch;
+  font-size: var(--text-base);
+  line-height: 1.6;
+  color: var(--text-dim);
+}
+
+.board-button {
+  position: relative;
+  padding: 18px 34px;
+  border: 0;
+  border-radius: 999px;
+  cursor: pointer;
+  font-size: var(--text-base);
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: var(--ink-950);
+  background: var(--amber);
+  box-shadow: 0 0 0 0 color-mix(in oklch, var(--amber) 60%, transparent), 0 16px 40px -14px var(--amber);
+  transition: transform var(--duration-fast) var(--ease-out-expo), box-shadow var(--duration-normal);
+}
+
+.board-button:hover { transform: translateY(-2px); box-shadow: 0 0 0 6px color-mix(in oklch, var(--amber) 22%, transparent), 0 22px 50px -14px var(--amber); }
+.board-button:active { transform: translateY(1px) scale(0.98); }
+.board-button:focus-visible { outline: 2px solid var(--moon); outline-offset: 4px; }
+.board-button:disabled { opacity: 0.7; cursor: progress; }
+
+.title-error {
+  margin: 18px 0 0;
+  max-width: 52ch;
+  color: var(--signal);
+  font-size: var(--text-sm);
+  line-height: 1.5;
+}
+
+.title-notes {
+  margin: 30px 0 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 8px;
+  font-size: var(--text-xs);
+  letter-spacing: 0.04em;
+  color: var(--text-dim);
+}
+
+.title-notes li::before { content: '— '; color: var(--amber-dim); }
+
+@media (prefers-reduced-motion: reduce) { .title-poster { animation: none; } }

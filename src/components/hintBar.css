@@ -1,0 +1,54 @@
+.hint-bar {
+  position: absolute;
+  left: 50%;
+  top: clamp(56px, 11vh, 120px);
+  transform: translateX(-50%);
+  width: min(92vw, 720px);
+  display: flex;
+  justify-content: center;
+  pointer-events: none;
+  z-index: 20;
+}
+
+.hint {
+  margin: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 18px 10px 12px;
+  border-radius: 999px;
+  font-size: var(--text-sm);
+  line-height: 1.35;
+  color: var(--text);
+  background: color-mix(in oklch, var(--ink-950) 78%, transparent);
+  border: 1px solid color-mix(in oklch, var(--signal) 55%, transparent);
+  box-shadow: 0 10px 40px -12px color-mix(in oklch, var(--signal) 45%, transparent);
+  backdrop-filter: blur(6px);
+  animation: hint-in var(--duration-normal) var(--ease-out-expo);
+}
+
+.hint.is-camera { border-color: color-mix(in oklch, var(--moon) 55%, transparent); box-shadow: none; }
+
+.hint-mark {
+  display: grid;
+  place-items: center;
+  width: 24px;
+  height: 24px;
+  flex: none;
+  border-radius: 50%;
+  font-weight: 500;
+  color: var(--ink-950);
+  background: var(--signal);
+}
+
+.hint.is-camera .hint-mark { background: var(--moon); }
+
+@keyframes hint-in {
+  from { opacity: 0; transform: translateY(-8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* on phones the reflection window sits in the top-right corner: keep hints below it */
+@media (max-width: 640px) {
+  .hint-bar { top: calc(var(--gutter) + 124px); }
+}

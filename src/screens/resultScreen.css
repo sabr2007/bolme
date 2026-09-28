@@ -1,0 +1,122 @@
+.result-screen {
+  position: absolute;
+  inset: 0;
+  overflow-y: auto;
+  display: grid;
+  place-items: center;
+  padding: var(--gutter);
+  background: radial-gradient(ellipse at 30% 20%, oklch(22% 0.03 60), var(--ink-950) 70%);
+}
+
+.ticket {
+  position: relative;
+  width: min(100%, 860px);
+  padding: clamp(22px, 4vw, 44px);
+  color: var(--paper-ink);
+  background:
+    radial-gradient(circle at 0 50%, transparent 14px, var(--paper) 15px) left / 51% 100% no-repeat,
+    radial-gradient(circle at 100% 50%, transparent 14px, var(--paper) 15px) right / 51% 100% no-repeat;
+  filter: drop-shadow(0 30px 60px rgb(0 0 0 / 0.6));
+  transform: rotate(-0.6deg);
+  animation: ticket-in 900ms var(--ease-out-expo);
+}
+
+.ticket-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+  padding-bottom: 14px;
+  border-bottom: 1px dashed color-mix(in oklch, var(--paper-ink) 40%, transparent);
+  font-size: var(--text-xs);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.ticket h1 {
+  margin: 22px 0 10px;
+  font-family: var(--font-display);
+  font-size: var(--text-title);
+  font-weight: 600;
+  line-height: 0.95;
+}
+
+.ticket-epilogue {
+  margin: 0 0 22px;
+  max-width: 60ch;
+  font-family: var(--font-display);
+  font-size: clamp(1.15rem, 0.95rem + 0.6vw, 1.45rem);
+  font-style: italic;
+  line-height: 1.35;
+}
+
+.ticket-route {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 0;
+  margin: 0 0 26px;
+  padding: 0;
+  list-style: none;
+  font-size: var(--text-xs);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.ticket-route li + li::before { content: '→'; margin: 0 10px; color: var(--amber-dim); }
+
+.ticket-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr 1fr;
+  gap: 26px;
+  padding: 22px 0;
+  border-top: 1px dashed color-mix(in oklch, var(--paper-ink) 40%, transparent);
+  border-bottom: 1px dashed color-mix(in oklch, var(--paper-ink) 40%, transparent);
+}
+
+.ticket h2 {
+  margin: 0 0 10px;
+  font-size: var(--text-xs);
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: color-mix(in oklch, var(--paper-ink) 70%, transparent);
+}
+
+.ticket-profile { margin: 0; padding: 0; list-style: none; display: grid; gap: 6px; font-family: var(--font-display); font-size: 1.3rem; }
+
+.fear-chart { width: 100%; height: auto; }
+.fear-chart path { fill: none; stroke: oklch(52% 0.17 32); stroke-width: 2; stroke-linejoin: round; }
+
+.ticket-stat { margin: 0; font-size: var(--text-sm); }
+.ticket-stat strong { font-family: var(--font-display); font-size: 1.8rem; }
+.ticket-note { margin: 8px 0 0; font-size: var(--text-xs); line-height: 1.5; color: color-mix(in oklch, var(--paper-ink) 75%, transparent); }
+
+.ticket-foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  padding-top: 20px;
+  color: var(--paper-ink);
+}
+
+.ticket-foot .gesture-option { color: var(--paper-ink); }
+.ticket-foot .gesture-how { color: color-mix(in oklch, var(--paper-ink) 65%, transparent); }
+.ticket-foot .ring-track { stroke: color-mix(in oklch, var(--paper-ink) 25%, transparent); }
+
+.ticket-replay {
+  border: 0;
+  background: none;
+  cursor: pointer;
+  font-size: var(--text-xs);
+  letter-spacing: 0.08em;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  color: color-mix(in oklch, var(--paper-ink) 75%, transparent);
+}
+.ticket-replay:focus-visible { outline: 2px solid var(--amber-dim); outline-offset: 4px; }
+
+@keyframes ticket-in { from { opacity: 0; transform: translateY(40px) rotate(2deg); } to { opacity: 1; transform: rotate(-0.6deg); } }
+
+@media (max-width: 720px) { .ticket-grid { grid-template-columns: 1fr; } }

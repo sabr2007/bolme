@@ -1,0 +1,62 @@
+.ticket-check { position: absolute; inset: 0; overflow: hidden; }
+
+.scrim {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(0deg, rgb(4 6 10 / 0.92) 0%, rgb(4 6 10 / 0.35) 38%, transparent 60%),
+    radial-gradient(ellipse at center, transparent 55%, rgb(0 0 0 / 0.55) 100%);
+  z-index: 5;
+}
+
+.ticket-panel {
+  position: absolute;
+  left: 50%;
+  bottom: clamp(20px, 6vh, 64px);
+  transform: translateX(-50%);
+  width: min(92vw, 900px);
+  display: grid;
+  justify-items: center;
+  gap: 18px;
+  text-align: center;
+  z-index: 10;
+}
+
+.ticket-step {
+  margin: 0;
+  font-size: var(--text-xs);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--amber);
+}
+
+.ticket-line {
+  margin: 0;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: var(--text-sub);
+  line-height: 1.2;
+  text-shadow: 0 2px 18px rgb(0 0 0 / 0.9);
+  animation: sub-in 420ms var(--ease-out-expo);
+}
+
+.ticket-gesture { min-height: 96px; display: grid; place-items: center; transition: transform var(--duration-normal) var(--ease-out-expo); }
+.ticket-gesture.is-passed { transform: scale(1.08); }
+
+.calibration { display: grid; gap: 10px; justify-items: center; }
+.calibration-bar {
+  width: min(60vw, 280px);
+  height: 3px;
+  border-radius: 3px;
+  overflow: hidden;
+  background: color-mix(in oklch, var(--text) 18%, transparent);
+}
+.calibration-bar span {
+  display: block;
+  height: 100%;
+  background: var(--amber);
+  transform-origin: left;
+  transition: transform 120ms linear;
+}
+.calibration-text { font-size: var(--text-xs); letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-dim); }
