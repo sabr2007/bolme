@@ -4,17 +4,19 @@ import type { GestureId } from '../gestures/types'
 export interface TicketStep {
   readonly id: string
   readonly line: string
+  /** the big, plain instruction under the conductor's line */
+  readonly action: string
   readonly gesture: GestureId | 'calibrate'
 }
 
 export const TICKET_STEPS: readonly TicketStep[] = [
-  { id: 'calibrate', line: 'Пассажир, проснитесь. Посмотрите на меня… Билет не нужен — я запомню ваше лицо.', gesture: 'calibrate' },
-  { id: 'smile', line: 'Улыбнитесь. Мне нужно знать, что вы живой.', gesture: 'smile' },
-  { id: 'frown', line: 'А теперь нахмурьтесь. Как контролёр.', gesture: 'frown' },
-  { id: 'left', line: 'Посмотрите налево…', gesture: 'turnLeft' },
-  { id: 'right', line: '…теперь направо.', gesture: 'turnRight' },
-  { id: 'surprise', line: 'Удивитесь. Здесь это пригодится.', gesture: 'surprise' },
-  { id: 'eyes', line: 'И закройте глаза. Досчитайте до двух.', gesture: 'eyesClosed' },
+  { id: 'calibrate', line: 'Пассажир, проснитесь. Посмотрите на меня… Билет не нужен — я запомню ваше лицо.', action: 'Посмотрите в камеру спокойно', gesture: 'calibrate' },
+  { id: 'smile', line: 'Улыбнитесь. Мне нужно знать, что вы живой.', action: 'Улыбнитесь', gesture: 'smile' },
+  { id: 'frown', line: 'А теперь нахмурьтесь. Как контролёр.', action: 'Нахмурьтесь', gesture: 'frown' },
+  { id: 'left', line: 'Посмотрите налево…', action: 'Поверните голову влево', gesture: 'turnLeft' },
+  { id: 'right', line: '…теперь направо.', action: 'Поверните голову вправо', gesture: 'turnRight' },
+  { id: 'surprise', line: 'Удивитесь. Здесь это пригодится.', action: 'Удивитесь', gesture: 'surprise' },
+  { id: 'eyes', line: 'И закройте глаза. Досчитайте до двух.', action: 'Закройте глаза на 2 секунды', gesture: 'eyesClosed' },
 ]
 
 export const TICKET_ACCEPTED_LINE = 'Билет принят. Приятной поездки.'

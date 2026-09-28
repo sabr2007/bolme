@@ -102,7 +102,7 @@
 }
 
 .ticket-foot .gesture-option { color: var(--paper-ink); }
-.ticket-foot .gesture-how { color: color-mix(in oklch, var(--paper-ink) 65%, transparent); }
+.ticket-foot .gesture-detail { color: var(--paper-ink); opacity: 0.7; }
 .ticket-foot .ring-track { stroke: color-mix(in oklch, var(--paper-ink) 25%, transparent); }
 
 .ticket-replay {

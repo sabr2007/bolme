@@ -8,6 +8,8 @@ interface ClipPlayerProps {
   /** changes restart playback even when two scenes share the same clip */
   playbackKey: string
   loop?: boolean
+  /** < 1 slows the clip down (subtitle cues are in clip time, so they stretch with it) */
+  playbackRate?: number
   onEnded?: () => void
   /** receives the active clip's current time every animation frame (for subtitles) */
   timeRef?: RefObject<number>
@@ -18,7 +20,7 @@ interface ClipPlayerProps {
  * Double-buffered player: the next clip loads in the hidden <video> and is revealed only once it is
  * actually playing, so the previous frame stays on screen until then — no black flash between clips.
  */
-export function ClipPlayer({ src, playbackKey, loop = false, onEnded, timeRef, className }: ClipPlayerProps) {
+export function ClipPlayer({ src, playbackKey, loop = false, playbackRate = 1, onEnded, timeRef, className }: ClipPlayerProps) {
   const videos = [useRef<HTMLVideoElement>(null), useRef<HTMLVideoElement>(null)]
   const [active, setActive] = useState(0)
   const activeRef = useRef(0)
@@ -49,6 +51,8 @@ export function ClipPlayer({ src, playbackKey, loop = false, onEnded, timeRef, c
       if (cancelled) return
       next.loop = loop
       next.src = url
+      next.defaultPlaybackRate = playbackRate
+      next.playbackRate = playbackRate
       next.currentTime = 0
       next.addEventListener('playing', reveal, { once: true })
       next.play().catch(() => {
@@ -62,7 +66,7 @@ export function ClipPlayer({ src, playbackKey, loop = false, onEnded, timeRef, c
       next.removeEventListener('playing', reveal)
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps -- refs are stable; playbackKey restarts on purpose
-  }, [src, playbackKey, loop])
+  }, [src, playbackKey, loop, playbackRate])
 
   useEffect(() => {
     let frame = 0

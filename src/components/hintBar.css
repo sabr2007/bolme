@@ -52,3 +52,21 @@
 @media (max-width: 640px) {
   .hint-bar { top: calc(var(--gutter) + 124px); }
 }
+
+.hint-bar.is-inline {
+  position: static;
+  transform: none;
+  width: 100%;
+  min-height: 46px;
+  align-items: center;
+}
+
+/* inline hints sit right above the gesture they are about: this is the error mode, so it must read at a glance */
+.hint-bar.is-inline .hint {
+  padding: 12px 22px 12px 14px;
+  font-size: clamp(1rem, 0.92rem + 0.35vw, 1.2rem);
+  background: color-mix(in oklch, oklch(30% 0.09 32) 55%, var(--ink-950));
+  border-width: 1.5px;
+}
+.hint-bar.is-inline .hint.is-camera { background: color-mix(in oklch, var(--ink-800) 85%, transparent); }
+.hint-bar.is-inline .hint-mark { width: 28px; height: 28px; font-size: 1rem; }

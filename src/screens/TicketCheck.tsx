@@ -73,22 +73,30 @@ export function TicketCheck({ sound, onDone }: TicketCheckProps) {
   useGestureEvents(handleGesture)
 
   const line = phase === 'accepted' ? TICKET_ACCEPTED_LINE : phase === 'skipped' ? STEP_TIMEOUT_LINE : step.line
+  const calibrationShown = calibrating ? calibrationProgress : phase === 'asking' ? 0 : 1
   return (
     <main className="ticket-check">
       <ClipPlayer src={IDLE_CLIP} playbackKey="ticket" loop timeRef={timeRef} />
       <div className="scrim" aria-hidden="true" />
-      <HintBar />
       <section className="ticket-panel" aria-live="polite" data-step={step.id} data-passed={passed}>
         <p className="ticket-step">Проверка билета · {Math.min(stepIndex + 1, TICKET_STEPS.length)} / {TICKET_STEPS.length}</p>
-        <p key={line} className="ticket-line">{line}</p>
+        <p key={line} className="ticket-line">«{line}»</p>
+        <HintBar inline />
         <div className={`ticket-gesture ${phase === 'passed' ? 'is-passed' : ''}`}>
           {step.gesture === 'calibrate' ? (
             <div className="calibration">
-              <div className="calibration-bar"><span style={{ transform: `scaleX(${calibrating ? calibrationProgress : phase === 'asking' ? 0 : 1})` }} /></div>
-              <span className="calibration-text">Смотрите прямо, лицо спокойное</span>
+              <span className="calibration-action">{step.action}</span>
+              <div className="calibration-bar"><span style={{ transform: `scaleX(${calibrationShown})` }} /></div>
+              <span className="calibration-text">Запоминаю ваше лицо — пару секунд не двигайтесь</span>
             </div>
           ) : (
-            <GestureOption gesture={step.gesture} meaning={phase === 'passed' ? 'Принято' : ' '} meter={meters[step.gesture]} />
+            <GestureOption
+              gesture={step.gesture}
+              title={phase === 'passed' ? 'Принято' : step.action}
+              meter={meters[step.gesture]}
+              done={phase === 'passed'}
+              side="left"
+            />
           )}
         </div>
       </section>

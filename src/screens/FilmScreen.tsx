@@ -17,6 +17,8 @@ const BOREDOM_KNOCK = 0.75
 const KNOCK_LINE = 'Тук-тук. «Не спите, пассажир».'
 const KNOCK_VISIBLE_MS = 2600
 const DEFAULT_BLACK_S = 5
+/** story clips are 5 s at 16 fps; slightly slower reads calmer and leaves time for the subtitles */
+const STORY_PLAYBACK_RATE = 0.85
 
 export interface FearSample {
   readonly t: number
@@ -167,6 +169,7 @@ export function FilmScreen({ story, sound, onEnd }: FilmScreenProps) {
           src={playing.src}
           playbackKey={`${sceneId}:${mode}`}
           loop={mode === 'choice'}
+          playbackRate={STORY_PLAYBACK_RATE}
           onEnded={handleClipEnded}
           timeRef={timeRef}
         />
@@ -174,7 +177,7 @@ export function FilmScreen({ story, sound, onEnd }: FilmScreenProps) {
       </div>
       <div className="letterbox top" aria-hidden="true" />
       <div className="letterbox bottom" aria-hidden="true" />
-      <HintBar />
+      {mode === 'clip' && <HintBar />}
       {mode === 'clip' && scene.clip.subtitles && (
         <Subtitles cues={scene.clip.subtitles} timeRef={timeRef} context={lineContext} clipKey={sceneId} />
       )}

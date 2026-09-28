@@ -9,6 +9,14 @@ import type { FilmResult } from './FilmScreen'
 import './resultScreen.css'
 
 const CHART_W = 520
+
+/** 1 раз, 2 раза, 5 раз, 21 раз, 22 раза */
+function times(n: number): string {
+  const mod10 = n % 10
+  const mod100 = n % 100
+  const few = mod10 >= 2 && mod10 <= 4 && (mod100 < 12 || mod100 > 14)
+  return `${n} ${few ? 'раза' : 'раз'}`
+}
 const CHART_H = 90
 
 interface ResultScreenProps {
@@ -86,13 +94,13 @@ export function ResultScreen({ story, result, onReplay }: ResultScreenProps) {
             <p className="ticket-stat"><strong>{result.recognized}</strong> распознано · <strong>{result.hints}</strong> подсказок</p>
             <p className="ticket-note">
               {accuracy === null ? 'Решения принимал поезд' : `Точность с первой попытки: ${accuracy}%`}
-              {result.timeouts > 0 && ` · ${result.timeouts} раз решило настроение`}
+              {result.timeouts > 0 && ` · ${times(result.timeouts)} решило настроение`}
             </p>
           </div>
         </section>
 
         <footer className="ticket-foot">
-          <GestureOption gesture="smile" meaning="Улыбнитесь, чтобы проехать снова" meter={meters.smile} side="left" />
+          <GestureOption gesture="smile" title="Улыбнитесь, чтобы проехать снова" detail="Или выберите другой путь — концовок четыре" meter={meters.smile} side="left" />
           <button className="ticket-replay" onClick={onReplay}>или нажмите здесь</button>
         </footer>
       </article>

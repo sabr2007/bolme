@@ -63,3 +63,43 @@
   .choice-row { grid-template-columns: 1fr; justify-items: center; }
   .choice-row .side-right, .choice-row .side-left { justify-self: center; }
 }
+
+.edge-cue {
+  --level: 0;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 24vw;
+  z-index: 17;
+  pointer-events: none;
+  display: grid;
+  align-content: center;
+  justify-items: center;
+  gap: 6px;
+  color: var(--amber);
+  opacity: calc(0.35 + var(--level) * 0.65);
+  transition: opacity 120ms linear;
+}
+
+.edge-cue.is-left { left: 0; background: linear-gradient(90deg, color-mix(in oklch, var(--amber) calc(10% + var(--level) * 35%), transparent), transparent); }
+.edge-cue.is-right { right: 0; background: linear-gradient(270deg, color-mix(in oklch, var(--amber) calc(10% + var(--level) * 35%), transparent), transparent); }
+
+.edge-arrow {
+  font-family: var(--font-display);
+  font-size: clamp(6rem, 4rem + 8vw, 12rem);
+  line-height: 0.7;
+  text-shadow: 0 0 40px color-mix(in oklch, var(--amber) 70%, transparent);
+  transform: translateX(calc(var(--level) * -18px));
+  transition: transform 120ms linear;
+}
+
+.edge-cue.is-right .edge-arrow { transform: translateX(calc(var(--level) * 18px)); }
+
+.edge-label {
+  font-size: var(--text-xs);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text);
+}
+
+@media (max-width: 640px) { .edge-cue { width: 18vw; } .edge-label { display: none; } }
