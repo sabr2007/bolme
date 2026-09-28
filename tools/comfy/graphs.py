@@ -1,10 +1,4 @@
-"""ComfyUI API-format graphs: Qwen-Image 2512 keyframes and Wan 2.2 image-to-video (4-step lightx2v)."""
-
-QWEN_UNET = "qwen_image_2512_fp8_e4m3fn.safetensors"
-QWEN_TEXT_ENCODER = "qwen_2.5_vl_7b_fp8_scaled.safetensors"
-QWEN_VAE = "qwen_image_vae.safetensors"
-QWEN_SHIFT = 3.1
-QWEN_NEGATIVE = "low quality, blurry, deformed, distorted face, extra fingers, text, watermark, logo, signature"
+"""ComfyUI API-format graphs for Wan 2.2 image-to-video and first-last-frame (14B, 4-step lightx2v LoRA)."""
 
 WAN_HIGH = "wan2.2_i2v_high_noise_14B_fp8_scaled.safetensors"
 WAN_LOW = "wan2.2_i2v_low_noise_14B_fp8_scaled.safetensors"
@@ -22,25 +16,6 @@ WAN_NEGATIVE = (
     "JPEG压缩残留，丑陋的，残缺的，多余的手指，画得不好的手部，画得不好的脸部，畸形的，毁容的，形态畸形的肢体，"
     "手指融合，静止不动的画面，杂乱的背景，三条腿，背景人很多，倒着走"
 )
-
-
-def qwen_t2i(prompt: str, seed: int, width: int = 1664, height: int = 928,
-             steps: int = 30, cfg: float = 4.0, prefix: str = "kf") -> dict:
-    return {
-        "unet": {"class_type": "UNETLoader", "inputs": {"unet_name": QWEN_UNET, "weight_dtype": "default"}},
-        "shift": {"class_type": "ModelSamplingAuraFlow", "inputs": {"model": ["unet", 0], "shift": QWEN_SHIFT}},
-        "clip": {"class_type": "CLIPLoader", "inputs": {"clip_name": QWEN_TEXT_ENCODER, "type": "qwen_image", "device": "default"}},
-        "vae": {"class_type": "VAELoader", "inputs": {"vae_name": QWEN_VAE}},
-        "pos": {"class_type": "CLIPTextEncode", "inputs": {"text": prompt, "clip": ["clip", 0]}},
-        "neg": {"class_type": "CLIPTextEncode", "inputs": {"text": QWEN_NEGATIVE, "clip": ["clip", 0]}},
-        "latent": {"class_type": "EmptySD3LatentImage", "inputs": {"width": width, "height": height, "batch_size": 1}},
-        "sample": {"class_type": "KSampler", "inputs": {
-            "model": ["shift", 0], "seed": seed, "steps": steps, "cfg": cfg, "sampler_name": "euler",
-            "scheduler": "simple", "positive": ["pos", 0], "negative": ["neg", 0], "latent_image": ["latent", 0],
-            "denoise": 1.0}},
-        "decode": {"class_type": "VAEDecode", "inputs": {"samples": ["sample", 0], "vae": ["vae", 0]}},
-        "save": {"class_type": "SaveImage", "inputs": {"images": ["decode", 0], "filename_prefix": prefix}},
-    }
 
 
 def _wan_models() -> dict:

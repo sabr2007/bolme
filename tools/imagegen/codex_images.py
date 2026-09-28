@@ -1,7 +1,9 @@
 """Generate keyframes with the Codex CLI built-in image generation tool, several in parallel.
 
-Usage: python3.12 tools/imagegen/codex_images.py jobs.json OUT_DIR [--parallel 4]
-jobs.json: [{"name": "A-stopmotion__1-conductor", "prompt": "...", "refs": ["optional/reference.png"]}]
+Usage: python3.12 tools/imagegen/codex_images.py content/keyframes.json content/keyframes --jpg --only kf-dining
+jobs.json: [{"name": "kf-dining", "prompt": "...", "refs": ["content/keyframes/kf-hub1-corridor.jpg"]}]
+Requires the Codex CLI logged in with image generation enabled (`codex features list | grep image_generation`).
+--jpg: store a 1280px JPG (what the repo keeps) instead of the ~2 MB PNG.
 """
 
 from __future__ import annotations
@@ -45,17 +47,31 @@ def generate(job: dict, out_dir: Path) -> tuple[str, bool, float]:
     return job["name"], ok, time.monotonic() - started
 
 
+def to_jpg(png: Path) -> Path:
+    jpg = png.with_suffix(".jpg")
+    subprocess.run(["ffmpeg", "-loglevel", "error", "-y", "-i", str(png), "-vf", "scale=1280:-2", "-q:v", "3", str(jpg)],
+                   check=True)
+    png.unlink()
+    return jpg
+
+
 def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("jobs", type=Path)
     parser.add_argument("out_dir", type=Path)
     parser.add_argument("--parallel", type=int, default=4)
+    parser.add_argument("--only", default="", help="comma-separated names")
+    parser.add_argument("--jpg", action="store_true", help="convert results to 1280px JPG")
     parser.add_argument("--force", action="store_true", help="regenerate images that already exist")
     args = parser.parse_args()
 
     args.out_dir.mkdir(parents=True, exist_ok=True)
     jobs = json.loads(args.jobs.read_text())
-    todo = [j for j in jobs if args.force or not (args.out_dir / f"{j['name']}.png").exists()]
+    if args.only:
+        wanted = set(args.only.split(","))
+        jobs = [j for j in jobs if j["name"] in wanted]
+    ext = "jpg" if args.jpg else "png"
+    todo = [j for j in jobs if args.force or not (args.out_dir / f"{j['name']}.{ext}").exists()]
     print(f"{len(todo)} to generate, {len(jobs) - len(todo)} already exist", flush=True)
 
     failed = []
@@ -63,6 +79,8 @@ def main() -> int:
         futures = [pool.submit(generate, job, args.out_dir.resolve()) for job in todo]
         for future in as_completed(futures):
             name, ok, seconds = future.result()
+            if ok and args.jpg:
+                to_jpg(args.out_dir / f"{name}.png")
             print(f"{'ok  ' if ok else 'FAIL'} {name} ({seconds:.0f}s)", flush=True)
             if not ok:
                 failed.append(name)
