@@ -1,60 +1,86 @@
 [
  {
+  "name": "kf-conductor-door",
+  "prompt": "First-person point of view from inside a small sleeper compartment of an old night train. A mysterious female train conductor in her forties leans in the doorway and looks directly into the camera with a calm, unsettling half-smile. She wears a dark navy railway uniform with brass buttons and a small cap, and holds an old brass oil lantern that casts warm light on her pale face. Behind her a dim corridor with curtains. Through the window: a dark endless steppe under a full moon.\n\nStyle: Stop-motion animation film still. Handcrafted miniature set and clay puppets with visible fingerprints, felt and wool costumes, glass bead eyes, slightly uneven handmade surfaces and tiny props. Practical miniature lighting, shallow depth of field, 35mm cinematic lens, light atmospheric haze. Eerie but whimsical dark fairy tale mood, muted teal shadows and warm amber lamp light."
+ },
+ {
+  "name": "kf-hub1-corridor",
+  "prompt": "First-person point of view standing in the narrow corridor of an old sleeper train carriage at night. At the end of the corridor there are two doors side by side: the left door is dark, with frosted glass and a faint shadowy silhouette behind it; the right door is ajar, spilling warm golden light and steam from the dining car. Worn red carpet runner, row of compartment doors, lace curtains, moonlit empty steppe outside the windows.\n\nStyle: Stop-motion animation film still. Handcrafted miniature set and clay puppets with visible fingerprints, felt and wool costumes, glass bead eyes, slightly uneven handmade surfaces and tiny props. Practical miniature lighting, shallow depth of field, 35mm cinematic lens, light atmospheric haze. Eerie but whimsical dark fairy tale mood, muted teal shadows and warm amber lamp light."
+ },
+ {
+  "name": "kf-hub2-stranger",
+  "prompt": "First-person point of view sitting at a small table in a sleeper compartment of an old night train. Across the table sits an old man with a grey beard and a worn wool coat, holding out a glass of hot tea in an ornate metal tea-glass holder toward the camera, steam rising. His eyes glint strangely in the lamp light, and his shadow on the wall behind him does not match his pose. The window beside him shows the dark steppe and a lonely moon.\n\nStyle: Stop-motion animation film still. Handcrafted miniature set and clay puppets with visible fingerprints, felt and wool costumes, glass bead eyes, slightly uneven handmade surfaces and tiny props. Practical miniature lighting, shallow depth of field, 35mm cinematic lens, light atmospheric haze. Eerie but whimsical dark fairy tale mood, muted teal shadows and warm amber lamp light."
+ },
+ {
   "name": "kf-vestibule",
+  "prompt": "First-person point of view standing in the cold, cramped vestibule (tambour) between two carriages of an old night train. Right in front of the camera is the train's exterior door with a small window covered in thick white frost. On the frosted glass, pressed from the OUTSIDE, is a pale handprint, and behind it the faint blurred silhouette of an old man's face. Bluish moonlight seeps through the frost, one dim caged lamp above, riveted metal floor plates, cold haze. Eerie and silent.\n\nStyle: Stop-motion animation film still. Handcrafted miniature set and clay puppets with visible fingerprints, felt and wool costumes, glass bead eyes, slightly uneven handmade surfaces and tiny props. Practical miniature lighting, shallow depth of field, 35mm cinematic lens, light atmospheric haze. Eerie but whimsical dark fairy tale mood, muted teal shadows and warm amber lamp light.",
   "refs": [
-   "gen/keyframes/kf-hub1-corridor.png"
-  ],
-  "prompt": "First-person point of view standing in the cold, cramped vestibule (tambour) between two carriages of an old night train. Right in front of the camera is the train's exterior door with a small window covered in thick white frost. On the frosted glass, pressed from the OUTSIDE, is a pale handprint, and behind it the faint blurred silhouette of an old man's face. Bluish moonlight seeps through the frost, one dim caged lamp above, riveted metal floor plates, cold haze. Eerie and silent.\n\nStyle: Stop-motion animation film still. Handcrafted miniature set and clay puppets with visible fingerprints, felt and wool costumes, glass bead eyes, slightly uneven handmade surfaces and tiny props. Practical miniature lighting, shallow depth of field, 35mm cinematic lens, light atmospheric haze. Eerie but whimsical dark fairy tale mood, muted teal shadows and warm amber lamp light."
+   "content/keyframes/kf-hub1-corridor.jpg"
+  ]
  },
  {
   "name": "kf-dining",
+  "prompt": "First-person point of view inside an empty old dining car of a night train. Warm amber table lamps with fringed shades, white tablecloths, every table empty. On the nearest table a glass of steaming tea in an ornate metal tea-glass holder (podstakannik) stands next to an old cardboard train ticket. In the dark window beside that table the REFLECTION shows the old passenger: the same stop-motion puppet old man as in the reference, long grey beard, deep-set glinting eyes, worn grey wool coat sitting at this very table, but the real chair in front of the camera is empty.\n\nStyle: Stop-motion animation film still. Handcrafted miniature set and clay puppets with visible fingerprints, felt and wool costumes, glass bead eyes, slightly uneven handmade surfaces and tiny props. Practical miniature lighting, shallow depth of field, 35mm cinematic lens, light atmospheric haze. Eerie but whimsical dark fairy tale mood, muted teal shadows and warm amber lamp light.",
   "refs": [
-   "gen/keyframes/kf-hub1-corridor.png",
-   "gen/keyframes/kf-hub2-stranger.png"
-  ],
-  "prompt": "First-person point of view inside an empty old dining car of a night train. Warm amber table lamps with fringed shades, white tablecloths, every table empty. On the nearest table a glass of steaming tea in an ornate metal tea-glass holder (podstakannik) stands next to an old cardboard train ticket. In the dark window beside that table the REFLECTION shows the old passenger: the same stop-motion puppet old man as in the reference, long grey beard, deep-set glinting eyes, worn grey wool coat sitting at this very table, but the real chair in front of the camera is empty.\n\nStyle: Stop-motion animation film still. Handcrafted miniature set and clay puppets with visible fingerprints, felt and wool costumes, glass bead eyes, slightly uneven handmade surfaces and tiny props. Practical miniature lighting, shallow depth of field, 35mm cinematic lens, light atmospheric haze. Eerie but whimsical dark fairy tale mood, muted teal shadows and warm amber lamp light."
+   "content/keyframes/kf-hub1-corridor.jpg",
+   "content/keyframes/kf-hub2-stranger.jpg"
+  ]
  },
  {
   "name": "kf-hub3-dark-door",
+  "prompt": "First-person point of view from the lower bunk of the same sleeper compartment as in the reference, at night, now in darkness: the lamps are off, only cold blue moonlight from the window. The sliding compartment door is closed; it has a large frosted glass panel. Behind the frosted glass, out in the corridor, the warm orange glow of an approaching lantern shows as a soft blur with a vague human silhouette. Deep shadows, tense silence.\n\nStyle: Stop-motion animation film still. Handcrafted miniature set and clay puppets with visible fingerprints, felt and wool costumes, glass bead eyes, slightly uneven handmade surfaces and tiny props. Practical miniature lighting, shallow depth of field, 35mm cinematic lens, light atmospheric haze. Eerie but whimsical dark fairy tale mood, muted teal shadows and warm amber lamp light.",
   "refs": [
-   "gen/keyframes/kf-conductor-door.png"
-  ],
-  "prompt": "First-person point of view from the lower bunk of the same sleeper compartment as in the reference, at night, now in darkness: the lamps are off, only cold blue moonlight from the window. The sliding compartment door is closed; it has a large frosted glass panel. Behind the frosted glass, out in the corridor, the warm orange glow of an approaching lantern shows as a soft blur with a vague human silhouette. Deep shadows, tense silence.\n\nStyle: Stop-motion animation film still. Handcrafted miniature set and clay puppets with visible fingerprints, felt and wool costumes, glass bead eyes, slightly uneven handmade surfaces and tiny props. Practical miniature lighting, shallow depth of field, 35mm cinematic lens, light atmospheric haze. Eerie but whimsical dark fairy tale mood, muted teal shadows and warm amber lamp light."
+   "content/keyframes/kf-conductor-door.jpg"
+  ]
  },
  {
   "name": "kf-callout",
+  "prompt": "First-person point of view from the lower bunk of the dark sleeper compartment at night. The sliding door is open. In the doorway stands the train conductor: the same slender stop-motion puppet woman as in the reference, pale face, large glass-bead eyes, brown hair under a small dark navy railway cap with a brass badge, dark navy uniform with brass buttons, old brass oil lantern. She is lit from below by her lantern and looks directly into the camera with an unreadable expression. The corridor behind her is dark; moonlight on the window.\n\nStyle: Stop-motion animation film still. Handcrafted miniature set and clay puppets with visible fingerprints, felt and wool costumes, glass bead eyes, slightly uneven handmade surfaces and tiny props. Practical miniature lighting, shallow depth of field, 35mm cinematic lens, light atmospheric haze. Eerie but whimsical dark fairy tale mood, muted teal shadows and warm amber lamp light.",
   "refs": [
-   "gen/keyframes/kf-conductor-door.png"
-  ],
-  "prompt": "First-person point of view from the lower bunk of the dark sleeper compartment at night. The sliding door is open. In the doorway stands the train conductor: the same slender stop-motion puppet woman as in the reference, pale face, large glass-bead eyes, brown hair under a small dark navy railway cap with a brass badge, dark navy uniform with brass buttons, old brass oil lantern. She is lit from below by her lantern and looks directly into the camera with an unreadable expression. The corridor behind her is dark; moonlight on the window.\n\nStyle: Stop-motion animation film still. Handcrafted miniature set and clay puppets with visible fingerprints, felt and wool costumes, glass bead eyes, slightly uneven handmade surfaces and tiny props. Practical miniature lighting, shallow depth of field, 35mm cinematic lens, light atmospheric haze. Eerie but whimsical dark fairy tale mood, muted teal shadows and warm amber lamp light."
+   "content/keyframes/kf-conductor-door.jpg"
+  ]
  },
  {
   "name": "kf-end-conductor",
+  "prompt": "First-person point of view in the dark sleeper compartment. the train conductor: the same slender stop-motion puppet woman as in the reference, pale face, large glass-bead eyes, brown hair under a small dark navy railway cap with a brass badge, dark navy uniform with brass buttons, old brass oil lantern stands close to the camera, smiling warmly for the first time, and holds out her glowing brass lantern toward the camera with both hands, offering it. Warm lantern light on her face, moonlight in the window.\n\nStyle: Stop-motion animation film still. Handcrafted miniature set and clay puppets with visible fingerprints, felt and wool costumes, glass bead eyes, slightly uneven handmade surfaces and tiny props. Practical miniature lighting, shallow depth of field, 35mm cinematic lens, light atmospheric haze. Eerie but whimsical dark fairy tale mood, muted teal shadows and warm amber lamp light.",
   "refs": [
-   "gen/keyframes/kf-conductor-door.png"
-  ],
-  "prompt": "First-person point of view in the dark sleeper compartment. the train conductor: the same slender stop-motion puppet woman as in the reference, pale face, large glass-bead eyes, brown hair under a small dark navy railway cap with a brass badge, dark navy uniform with brass buttons, old brass oil lantern stands close to the camera, smiling warmly for the first time, and holds out her glowing brass lantern toward the camera with both hands, offering it. Warm lantern light on her face, moonlight in the window.\n\nStyle: Stop-motion animation film still. Handcrafted miniature set and clay puppets with visible fingerprints, felt and wool costumes, glass bead eyes, slightly uneven handmade surfaces and tiny props. Practical miniature lighting, shallow depth of field, 35mm cinematic lens, light atmospheric haze. Eerie but whimsical dark fairy tale mood, muted teal shadows and warm amber lamp light."
+   "content/keyframes/kf-conductor-door.jpg"
+  ]
  },
  {
   "name": "kf-end-dream",
+  "prompt": "First-person point of view waking up in a small cozy bedroom in the morning, head on the pillow. Soft golden sunlight through a window with thin curtains, dust floating in the sunbeam. On the wooden nightstand right next to the pillow stand an EMPTY glass in an ornate metal tea-glass holder (podstakannik) and an old cardboard train ticket. Peaceful and quiet, with a subtle uncanny feeling.\n\nStyle: Stop-motion animation film still. Handcrafted miniature set and clay puppets with visible fingerprints, felt and wool costumes, glass bead eyes, slightly uneven handmade surfaces and tiny props. Practical miniature lighting, shallow depth of field, 35mm cinematic lens, light atmospheric haze. Eerie but whimsical dark fairy tale mood, muted teal shadows and warm amber lamp light.",
   "refs": [
-   "gen/keyframes/kf-hub2-stranger.png"
-  ],
-  "prompt": "First-person point of view waking up in a small cozy bedroom in the morning, head on the pillow. Soft golden sunlight through a window with thin curtains, dust floating in the sunbeam. On the wooden nightstand right next to the pillow stand an EMPTY glass in an ornate metal tea-glass holder (podstakannik) and an old cardboard train ticket. Peaceful and quiet, with a subtle uncanny feeling.\n\nStyle: Stop-motion animation film still. Handcrafted miniature set and clay puppets with visible fingerprints, felt and wool costumes, glass bead eyes, slightly uneven handmade surfaces and tiny props. Practical miniature lighting, shallow depth of field, 35mm cinematic lens, light atmospheric haze. Eerie but whimsical dark fairy tale mood, muted teal shadows and warm amber lamp light."
+   "content/keyframes/kf-hub2-stranger.jpg"
+  ]
  },
  {
   "name": "kf-end-forever",
+  "prompt": "First-person point of view sitting alone in the sleeper compartment of the night train. In the foreground the viewer's own old, wrinkled puppet hand holds a glass of tea in an ornate metal tea-glass holder. In the dark window glass the REFLECTION shows the viewer's face: the old passenger: the same stop-motion puppet old man as in the reference, long grey beard, deep-set glinting eyes, worn grey wool coat. The seat opposite is empty. Moonlit steppe outside the window.\n\nStyle: Stop-motion animation film still. Handcrafted miniature set and clay puppets with visible fingerprints, felt and wool costumes, glass bead eyes, slightly uneven handmade surfaces and tiny props. Practical miniature lighting, shallow depth of field, 35mm cinematic lens, light atmospheric haze. Eerie but whimsical dark fairy tale mood, muted teal shadows and warm amber lamp light.",
   "refs": [
-   "gen/keyframes/kf-hub2-stranger.png",
-   "gen/keyframes/kf-conductor-door.png"
-  ],
-  "prompt": "First-person point of view sitting alone in the sleeper compartment of the night train. In the foreground the viewer's own old, wrinkled puppet hand holds a glass of tea in an ornate metal tea-glass holder. In the dark window glass the REFLECTION shows the viewer's face: the old passenger: the same stop-motion puppet old man as in the reference, long grey beard, deep-set glinting eyes, worn grey wool coat. The seat opposite is empty. Moonlit steppe outside the window.\n\nStyle: Stop-motion animation film still. Handcrafted miniature set and clay puppets with visible fingerprints, felt and wool costumes, glass bead eyes, slightly uneven handmade surfaces and tiny props. Practical miniature lighting, shallow depth of field, 35mm cinematic lens, light atmospheric haze. Eerie but whimsical dark fairy tale mood, muted teal shadows and warm amber lamp light."
+   "content/keyframes/kf-hub2-stranger.jpg",
+   "content/keyframes/kf-conductor-door.jpg"
+  ]
  },
  {
   "name": "kf-end-station",
+  "prompt": "First-person point of view stepping off a train onto an empty wooden platform in the misty steppe at night just before dawn. One old lamp post casts a warm pool of light; a blank station sign with no letters hangs on two posts. Behind, the old night train stands in thick fog with glowing windows, already fading into the mist. Endless flat steppe, low moon, first pale light on the horizon.\n\nStyle: Stop-motion animation film still. Handcrafted miniature set and clay puppets with visible fingerprints, felt and wool costumes, glass bead eyes, slightly uneven handmade surfaces and tiny props. Practical miniature lighting, shallow depth of field, 35mm cinematic lens, light atmospheric haze. Eerie but whimsical dark fairy tale mood, muted teal shadows and warm amber lamp light.",
   "refs": [
-   "gen/keyframes/kf-hub1-corridor.png"
-  ],
-  "prompt": "First-person point of view stepping off a train onto an empty wooden platform in the misty steppe at night just before dawn. One old lamp post casts a warm pool of light; a blank station sign with no letters hangs on two posts. Behind, the old night train stands in thick fog with glowing windows, already fading into the mist. Endless flat steppe, low moon, first pale light on the horizon.\n\nStyle: Stop-motion animation film still. Handcrafted miniature set and clay puppets with visible fingerprints, felt and wool costumes, glass bead eyes, slightly uneven handmade surfaces and tiny props. Practical miniature lighting, shallow depth of field, 35mm cinematic lens, light atmospheric haze. Eerie but whimsical dark fairy tale mood, muted teal shadows and warm amber lamp light."
+   "content/keyframes/kf-hub1-corridor.jpg"
+  ]
+ },
+ {
+  "name": "kf-intro-train",
+  "prompt": "Wide exterior shot at night: an old dark-green night train with warmly glowing windows crosses an endless flat steppe under a huge full moon. A thin plume of steam trails behind the locomotive, silver grass moves in the wind, distant low hills, stars. The train is small in the frame, cinematic wide composition with lots of empty sky above for title text.\n\nStyle: Stop-motion animation film still. Handcrafted miniature set and clay puppets with visible fingerprints, felt and wool costumes, glass bead eyes, slightly uneven handmade surfaces and tiny props. Practical miniature lighting, shallow depth of field, 35mm cinematic lens, light atmospheric haze. Eerie but whimsical dark fairy tale mood, muted teal shadows and warm amber lamp light.",
+  "refs": [
+   "content/keyframes/kf-end-station.jpg"
+  ]
+ },
+ {
+  "name": "kf-intro-window",
+  "prompt": "Close view from inside a dark sleeper compartment toward the train window at night: the moonlit steppe rushes past outside, a faint reflection of an empty compartment in the glass, a small brass lamp on the window table, lace curtain edge. Calm, mysterious, no people.\n\nStyle: Stop-motion animation film still. Handcrafted miniature set and clay puppets with visible fingerprints, felt and wool costumes, glass bead eyes, slightly uneven handmade surfaces and tiny props. Practical miniature lighting, shallow depth of field, 35mm cinematic lens, light atmospheric haze. Eerie but whimsical dark fairy tale mood, muted teal shadows and warm amber lamp light.",
+  "refs": [
+   "content/keyframes/kf-conductor-door.jpg"
+  ]
  }
 ]

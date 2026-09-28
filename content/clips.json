@@ -1,115 +1,127 @@
 [
  {
   "name": "ticket-idle",
-  "start": "gen/keyframes/kf-conductor-door.png",
-  "end": "gen/keyframes/kf-conductor-door.png",
+  "start": "content/keyframes/kf-conductor-door.jpg",
+  "end": "content/keyframes/kf-conductor-door.jpg",
   "seed": 11,
   "prompt": "Stop-motion puppet animation, handcrafted miniature set. The train conductor stands in the doorway holding the lantern and waits, looking directly into the camera the whole time, breathing slowly, blinking once. The lantern flame flickers softly, the carriage sways gently. Static camera."
  },
  {
   "name": "wake",
-  "start": "gen/keyframes/kf-conductor-door.png",
+  "start": "content/keyframes/kf-conductor-door.jpg",
   "seed": 7,
   "prompt": "Stop-motion puppet animation, handcrafted miniature set. The train conductor looks directly into the camera and speaks with small mouth movements, tilts her head, then turns away and walks out of the doorway into the dark corridor, the lantern light leaving with her. The carriage sways gently. Static camera."
  },
  {
   "name": "corridor",
-  "start": "gen/keyframes/kf-hub1-corridor.png",
-  "end": "gen/keyframes/kf-hub1-corridor.png",
+  "start": "content/keyframes/kf-hub1-corridor.jpg",
+  "end": "content/keyframes/kf-hub1-corridor.jpg",
   "seed": 21,
   "prompt": "Stop-motion puppet animation, handcrafted miniature set. A long empty night-train corridor. The dark frosted door on the left shakes from knocking and the silhouette behind it moves; warm steam drifts from the open door on the right; the ceiling lamps flicker. Static camera."
  },
  {
   "name": "corridor-idle",
-  "start": "gen/keyframes/kf-hub1-corridor.png",
-  "end": "gen/keyframes/kf-hub1-corridor.png",
+  "start": "content/keyframes/kf-hub1-corridor.jpg",
+  "end": "content/keyframes/kf-hub1-corridor.jpg",
   "seed": 22,
   "prompt": "Stop-motion puppet animation, handcrafted miniature set. An empty night-train corridor, calm: lace curtains sway gently with the motion of the train, lamps flicker faintly, steam curls from the right doorway, the silhouette behind the left frosted door barely moves. Static camera."
  },
  {
   "name": "stranger",
-  "start": "gen/keyframes/kf-hub2-stranger.png",
-  "end": "gen/keyframes/kf-hub2-stranger.png",
+  "start": "content/keyframes/kf-hub2-stranger.jpg",
+  "end": "content/keyframes/kf-hub2-stranger.jpg",
   "seed": 31,
   "prompt": "Stop-motion puppet animation, handcrafted miniature set. The old man looks into the camera and speaks with small mouth and beard movements, raises the glass of tea slightly toward the camera and lowers it again. Steam rises from the tea. His shadow on the wall moves on its own. Static camera."
  },
  {
   "name": "stranger-idle",
-  "start": "gen/keyframes/kf-hub2-stranger.png",
-  "end": "gen/keyframes/kf-hub2-stranger.png",
+  "start": "content/keyframes/kf-hub2-stranger.jpg",
+  "end": "content/keyframes/kf-hub2-stranger.jpg",
   "seed": 32,
   "prompt": "Stop-motion puppet animation, handcrafted miniature set. The old man waits silently, holding the glass of tea toward the camera and blinking slowly. Steam rises from the tea, the lamp flame flickers, and his horned shadow on the wall behind him slowly moves on its own. Static camera."
  },
  {
   "name": "trust",
-  "start": "gen/keyframes/kf-hub2-stranger.png",
-  "seed": 33,
-  "prompt": "Stop-motion puppet animation, handcrafted miniature set. A small puppet hand enters the frame from the bottom and takes the glass of tea from the old man. The old man smiles warmly and nods slowly. Steam rises. Static camera."
+  "start": "content/keyframes/kf-hub2-stranger.jpg",
+  "seed": 71,
+  "prompt": "Stop-motion puppet animation, handcrafted miniature set. First-person view: a small puppet hand in a dark sleeve reaches in from the bottom right corner of the frame toward the old man, takes the glass of tea in its metal holder from his hand and lifts it toward the camera. The old man lets go, nods and smiles warmly. Steam rises. Static camera."
  },
  {
   "name": "refuse",
-  "start": "gen/keyframes/kf-hub2-stranger.png",
+  "start": "content/keyframes/kf-hub2-stranger.jpg",
   "seed": 34,
   "prompt": "Stop-motion puppet animation, handcrafted miniature set. The old man slowly pulls the glass of tea back toward himself with a thin smile and then sits completely still, while his shadow on the wall behind him keeps raising a glass and drinking on its own. Static camera."
  },
  {
   "name": "vestibule",
-  "start": "gen/keyframes/kf-hub1-corridor.png",
-  "end": "gen/keyframes/kf-vestibule.png",
+  "start": "content/keyframes/kf-hub1-corridor.jpg",
+  "end": "content/keyframes/kf-vestibule.jpg",
   "seed": 41,
   "prompt": "Stop-motion puppet animation, handcrafted miniature set. First-person view: the camera walks forward down the corridor to the dark frosted door on the left and stops right in front of it. On the frosted glass a pale handprint presses from the outside and the blurred face of an old man peers in. Cold moonlight."
  },
  {
   "name": "dining",
-  "start": "gen/keyframes/kf-hub1-corridor.png",
-  "end": "gen/keyframes/kf-dining.png",
+  "start": "content/keyframes/kf-hub1-corridor.jpg",
+  "end": "content/keyframes/kf-dining.jpg",
   "seed": 42,
   "prompt": "Stop-motion puppet animation, handcrafted miniature set. First-person view: the camera walks through the open door on the right into the warm, empty dining car and stops at a table with a steaming glass of tea in a metal holder. In the dark window the reflection of an old man appears at the empty table."
  },
  {
   "name": "lights-out",
-  "start": "gen/keyframes/kf-hub2-stranger.png",
-  "end": "gen/keyframes/kf-hub3-dark-door.png",
+  "start": "content/keyframes/kf-hub2-stranger.jpg",
+  "end": "content/keyframes/kf-hub3-dark-door.jpg",
   "seed": 43,
   "prompt": "Stop-motion puppet animation, handcrafted miniature set. The lamp flickers and goes out. In the darkness the old man vanishes. Only cold moonlight remains in the sleeper compartment; behind the frosted glass of the closed door a warm lantern glow slowly approaches along the corridor."
  },
  {
   "name": "lights-out-idle",
-  "start": "gen/keyframes/kf-hub3-dark-door.png",
-  "end": "gen/keyframes/kf-hub3-dark-door.png",
+  "start": "content/keyframes/kf-hub3-dark-door.jpg",
+  "end": "content/keyframes/kf-hub3-dark-door.jpg",
   "seed": 44,
   "prompt": "Stop-motion puppet animation, handcrafted miniature set. A dark sleeper compartment lit by moonlight. Behind the frosted glass of the closed door the lantern glow pulses and a silhouette shifts slightly; the train sways gently. Static camera."
  },
  {
   "name": "call-out",
-  "start": "gen/keyframes/kf-hub3-dark-door.png",
-  "end": "gen/keyframes/kf-callout.png",
+  "start": "content/keyframes/kf-hub3-dark-door.jpg",
+  "end": "content/keyframes/kf-callout.jpg",
   "seed": 45,
   "prompt": "Stop-motion puppet animation, handcrafted miniature set. The sliding compartment door opens. In the doorway stands the train conductor holding her glowing brass lantern, looking directly into the camera. Static camera."
  },
  {
   "name": "end-conductor",
-  "start": "gen/keyframes/kf-callout.png",
-  "end": "gen/keyframes/kf-end-conductor.png",
+  "start": "content/keyframes/kf-callout.jpg",
+  "end": "content/keyframes/kf-end-conductor.jpg",
   "seed": 46,
   "prompt": "Stop-motion puppet animation, handcrafted miniature set. The train conductor steps closer to the camera, smiles warmly for the first time and holds out her glowing brass lantern with both hands, offering it to the camera. Warm light fills the dark compartment."
  },
  {
   "name": "end-dream",
-  "start": "gen/keyframes/kf-end-dream.png",
+  "start": "content/keyframes/kf-end-dream.jpg",
   "seed": 51,
   "prompt": "Stop-motion puppet animation, handcrafted miniature set. A quiet morning bedroom: sunlight slowly grows brighter, thin curtains breathe in a light draft, dust drifts in the sunbeam. On the nightstand the empty tea glass in its metal holder catches the light. Very slow gentle camera push toward the nightstand."
  },
  {
   "name": "end-forever",
-  "start": "gen/keyframes/kf-end-forever.png",
+  "start": "content/keyframes/kf-end-forever.jpg",
   "seed": 52,
   "prompt": "Stop-motion puppet animation, handcrafted miniature set. The old puppet hand slowly raises the glass of tea a little. In the dark window the reflection of the old bearded man blinks and slowly turns to look straight at the camera. The train sways, moonlit steppe passes outside. Static camera."
  },
  {
   "name": "end-station",
-  "start": "gen/keyframes/kf-end-station.png",
+  "start": "content/keyframes/kf-end-station.jpg",
   "seed": 53,
   "prompt": "Stop-motion puppet animation, handcrafted miniature set. The camera steps forward onto the empty wooden platform. Behind, the old night train slowly dissolves into the thick fog until only its glowing windows remain and then fade. The lamp flickers, mist drifts, the horizon brightens."
+ },
+ {
+  "name": "intro-train",
+  "start": "content/keyframes/kf-intro-train.jpg",
+  "seed": 81,
+  "prompt": "Stop-motion miniature animation. The old night train with glowing windows moves slowly from left to right across the endless moonlit steppe, a plume of steam trails behind the locomotive, silver grass sways in the wind, stars twinkle. Static wide camera."
+ },
+ {
+  "name": "intro-window",
+  "start": "content/keyframes/kf-intro-window.jpg",
+  "seed": 82,
+  "prompt": "Stop-motion miniature animation. Inside the dark sleeper compartment: the moonlit steppe rushes past outside the window, the lantern flame flickers, the lace curtain sways gently with the motion of the train. Static camera."
  }
 ]

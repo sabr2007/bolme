@@ -1,0 +1,20 @@
+[
+ {
+  "name": "tf-smile",
+  "start": "e2e/assets/webcam-face.jpg",
+  "seed": 61,
+  "prompt": "Realistic webcam video. The woman looks into the camera, then breaks into a big genuine smile showing her teeth, her cheeks rise and her eyes squint with the smile, and she holds the big smile until the end. Static camera, head still."
+ },
+ {
+  "name": "tf-frown",
+  "start": "e2e/assets/webcam-face.jpg",
+  "seed": 62,
+  "prompt": "Realistic webcam video. The woman looks into the camera and frowns deeply: she lowers both eyebrows and draws them together, her lips press together, and she holds the stern frown until the end. No smile. Static camera, head still."
+ },
+ {
+  "name": "tf-turn-left",
+  "start": "e2e/assets/webcam-face.jpg",
+  "seed": 63,
+  "prompt": "Realistic webcam video. The woman turns her whole head to her left, toward the right edge of the frame, about thirty degrees, and holds her head turned there until the end. Static camera."
+ }
+]
