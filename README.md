@@ -71,9 +71,11 @@ npm run dev
 Кадры и клипы сгенерированы заранее, во время просмотра ничего не генерируется: просмотр бесплатный и без задержек.
 
 - **Опорные кадры** — GPT Image (через Codex CLI), стиль стоп-моушн; персонажи сохраняются через референсы. Скрипт: [`tools/imagegen/codex_images.py`](tools/imagegen/codex_images.py).
-- **Анимация** — Wan 2.2 image-to-video (14B, 4-шаговая LoRA) в ComfyUI на NVIDIA H100 (Brev). Скрипты: [`tools/comfy/`](tools/comfy).
+- **Анимация** — Wan 2.2 image-to-video (14B, 4-шаговая LoRA) в ComfyUI на NVIDIA H100 (Brev). Скрипты: [`tools/comfy/`](tools/comfy), [`tools/brev/`](tools/brev). Все промпты: [`content/`](content).
 - **Бесшовность**: у каждой развилки есть опорный кадр — петля ожидания начинается и заканчивается на нём, клипы-ответы с него начинаются (режим first-last-frame у Wan).
 - **Звук** — процедурный, Web Audio, без аудиофайлов.
+
+Как перегенерировать кадры и клипы (GPU на NVIDIA Brev, скрипты, грабли): [`AGENTS.md`](AGENTS.md).
 
 ## Технологии
 
