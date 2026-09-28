@@ -1,0 +1,11 @@
+# local working files: never upload them (the build only needs src/, public/, configs)
+gen/
+e2e/fixtures/
+e2e/__screens__/
+test-results/
+playwright-report/
+tools/
+content/keyframes/
+node_modules/
+dist/
+.env*
