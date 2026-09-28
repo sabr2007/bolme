@@ -37,3 +37,5 @@ test-results/
 playwright-report/
 e2e/__screens__/
 e2e/fixtures/
+.vercel
+.env*
