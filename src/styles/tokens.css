@@ -1,0 +1,38 @@
+/* Night Train design tokens. The film is a night scene in both color schemes by intent. */
+:root {
+  color-scheme: dark;
+
+  --ink-950: oklch(13% 0.014 255);
+  --ink-900: oklch(17% 0.018 255);
+  --ink-800: oklch(23% 0.022 255);
+  --ink-700: oklch(31% 0.024 255);
+  --paper: oklch(92% 0.035 85);
+  --paper-shade: oklch(84% 0.045 80);
+  --paper-ink: oklch(27% 0.03 55);
+  --amber: oklch(80% 0.14 72);
+  --amber-dim: oklch(62% 0.12 62);
+  --moon: oklch(80% 0.06 240);
+  --moon-dim: oklch(55% 0.05 245);
+  --signal: oklch(68% 0.18 32);
+  --text: oklch(95% 0.012 85);
+  --text-dim: oklch(74% 0.02 85);
+
+  --font-display: 'Cormorant Garamond', 'Times New Roman', serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, 'SFMono-Regular', monospace;
+
+  --text-xs: clamp(0.7rem, 0.66rem + 0.15vw, 0.8rem);
+  --text-sm: clamp(0.82rem, 0.78rem + 0.2vw, 0.95rem);
+  --text-base: clamp(1rem, 0.92rem + 0.4vw, 1.125rem);
+  --text-sub: clamp(1.3rem, 0.95rem + 1.5vw, 2.1rem);
+  --text-title: clamp(2.2rem, 1.2rem + 4vw, 4.5rem);
+  --text-hero: clamp(3.2rem, 1.2rem + 8vw, 8.5rem);
+
+  --gutter: clamp(16px, 3vw, 44px);
+  --radius-window: 22px;
+
+  --duration-fast: 150ms;
+  --duration-normal: 320ms;
+  --duration-slow: 900ms;
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+}
