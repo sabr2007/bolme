@@ -61,7 +61,8 @@ export function Reflection({ camera }: ReflectionProps) {
       }
       const snapshot = engine.getSnapshot()
       const face = snapshot.frame
-      if (!face?.present) return
+      // the mock camera (?mock=1) has no landmarks to draw
+      if (!face?.present || face.landmarks.length < 468) return
       const lit = new Set(snapshot.allowed.flatMap((g) => GESTURE_REGIONS[g]))
       const warning = snapshot.quality !== null
       for (const region of Object.keys(REGION_CONNECTIONS) as Region[]) {

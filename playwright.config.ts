@@ -16,6 +16,8 @@ export default defineConfig({
   projects: [
     // Chrome's built-in fake camera: a test pattern without a face
     { name: 'no-face', testMatch: /smoke\.spec\.ts/, use: { launchOptions: { args: CAMERA_ARGS } } },
+    // scripted mock camera (?mock=1): the full journey, deterministic, no face needed
+    { name: 'journey', testMatch: /journey\.spec\.ts/, use: { launchOptions: { args: CAMERA_ARGS } } },
     // a generated webcam video of a person performing the gestures
     {
       name: 'face',

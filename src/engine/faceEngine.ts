@@ -1,4 +1,5 @@
 import { classifyCameraError, FaceTracker, type CameraError } from '../face/faceTracker'
+import { isMockCamera, MockFaceSource } from '../face/mockFaceSource'
 import type { FaceFrame } from '../face/types'
 import { buildBaseline, CALIBRATION_MS } from '../features/calibration'
 import { computeFeatures, NEUTRAL_BASELINE, type Baseline, type Features } from '../features/features'
@@ -55,6 +56,7 @@ export class FaceEngine {
   private readonly listeners = new Set<() => void>()
   private readonly gestureListeners = new Set<(event: GestureEvent) => void>()
   private readonly tracker = new FaceTracker()
+  private readonly mock = isMockCamera() ? new MockFaceSource() : null
   private trackerState: TrackerState = createTracker([])
   private baseline: Baseline = NEUTRAL_BASELINE
   private calibration: Calibration | null = null
@@ -78,10 +80,14 @@ export class FaceEngine {
     if (this.snapshot.status === 'running' || this.snapshot.status === 'loading') return true
     this.publish({ status: 'loading', error: null })
     try {
-      await this.tracker.start(video, (frame) => this.handleFrame(frame))
-      this.brightnessTimer = window.setInterval(() => {
-        this.brightness = measureBrightness(video)
-      }, BRIGHTNESS_INTERVAL_MS)
+      if (this.mock) {
+        this.mock.start((frame) => this.handleFrame(frame))
+      } else {
+        await this.tracker.start(video, (frame) => this.handleFrame(frame))
+        this.brightnessTimer = window.setInterval(() => {
+          this.brightness = measureBrightness(video)
+        }, BRIGHTNESS_INTERVAL_MS)
+      }
       this.publish({ status: 'running' })
       return true
     } catch (error: unknown) {
@@ -92,6 +98,7 @@ export class FaceEngine {
 
   stop(): void {
     this.tracker.stop()
+    this.mock?.stop()
     if (this.brightnessTimer !== null) window.clearInterval(this.brightnessTimer)
     this.brightnessTimer = null
     this.publish({ status: 'idle' })
