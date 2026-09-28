@@ -29,7 +29,7 @@ function isOneSidedFrown(f: Features): boolean {
 const turn = (id: 'turnLeft' | 'turnRight', sign: 1 | -1, side: string): GestureDef => ({
   id,
   label: `Голова ${side}`,
-  instruction: `Поверни голову ${side}`,
+  instruction: sign > 0 ? `← Поверни голову ${side}` : `Поверни голову ${side} →`,
   holdMs: 500,
   parts: [
     {
@@ -45,6 +45,12 @@ const turn = (id: 'turnLeft' | 'turnRight', sign: 1 | -1, side: string): Gesture
       test: (f) => f.gazeAside >= T.eyesOnlyGaze && Math.abs(f.yaw) < T.eyesOnlyMaxYawDeg,
       hint: 'Ты смотришь в сторону только глазами — поверни всю голову',
     },
+    {
+      // only reachable when the opposite turn is not a valid answer (e.g. the tutorial step)
+      id: 'wrong-side',
+      test: (f) => sign * f.yaw <= -T.turnDeg,
+      hint: `Не в ту сторону — поверни голову ${side}`,
+    },
   ],
 })
 
@@ -55,7 +61,7 @@ export const GESTURES: Readonly<Record<GestureId, GestureDef>> = {
   smile: {
     id: 'smile',
     label: 'Улыбка',
-    instruction: 'Улыбнись — искренне, глазами тоже',
+    instruction: 'Улыбнись — и глазами тоже',
     holdMs: 700,
     parts: [
       { id: 'mouth', measure: (f) => f.smile, min: T.smile, hint: () => 'Улыбнись шире — подними уголки губ' },
@@ -71,7 +77,7 @@ export const GESTURES: Readonly<Record<GestureId, GestureDef>> = {
   frown: {
     id: 'frown',
     label: 'Нахмуриться',
-    instruction: 'Нахмурься — сведи брови',
+    instruction: 'Нахмурься — сведи обе брови',
     holdMs: 700,
     parts: [
       {

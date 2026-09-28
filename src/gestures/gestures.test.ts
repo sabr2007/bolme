@@ -102,6 +102,17 @@ describe('stepTracker', () => {
     expect(hints(run.events)).toEqual(['Ты смотришь в сторону только глазами — поверни всю голову'])
   })
 
+  it('says "wrong side" when the viewer turns the other way', () => {
+    const run = hold(createTracker(['turnLeft']), face({ yaw: -30 }), 0, 800)
+    expect(hints(run.events)).toEqual(['Не в ту сторону — поверни голову влево'])
+  })
+
+  it('treats the opposite turn as an answer, not a mistake, when both sides are offered', () => {
+    const run = hold(createTracker(['turnLeft', 'turnRight']), face({ yaw: -30 }), 0, 800)
+    expect(recognized(run.events)).toEqual(['turnRight'])
+    expect(hints(run.events)).toEqual([])
+  })
+
   it('does not repeat the same hint every frame', () => {
     const run = hold(createTracker(['smile']), face({ smile: 0.7 }), 0, 2500)
     expect(hints(run.events)).toHaveLength(1)
