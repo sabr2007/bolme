@@ -85,7 +85,8 @@ export class FaceEngine {
       } else {
         await this.tracker.start(video, (frame) => this.handleFrame(frame))
         this.brightnessTimer = window.setInterval(() => {
-          this.brightness = measureBrightness(video)
+          const frame = this.snapshot.frame
+          this.brightness = measureBrightness(video, frame?.present ? frame.box : null)
         }, BRIGHTNESS_INTERVAL_MS)
       }
       this.publish({ status: 'running' })
@@ -124,15 +125,18 @@ export class FaceEngine {
     const msWithoutFace = frame.present ? 0 : frame.t - this.lastFaceAt
     const quality = checkQuality(frame, msWithoutFace, this.brightness)
 
+    // "too dark" is advice, not a blocker: if the landmarker still sees the face, gestures keep working
+    const blocking = quality !== null && quality.id !== 'too-dark'
+
     if (this.calibration) {
-      this.stepCalibration(this.calibration, frame, quality)
+      this.stepCalibration(this.calibration, frame, blocking ? quality : null, quality)
       return
     }
 
     const features = frame.present ? computeFeatures(frame.blendshapes, frame.pose, this.baseline) : null
     const mood = stepMood(this.snapshot.mood, features, frame.t)
     let meters = this.snapshot.meters
-    if (features && !quality) {
+    if (features && !blocking) {
       const result = stepTracker(this.trackerState, features, frame.t)
       this.trackerState = result.state
       meters = result.meters
@@ -141,8 +145,10 @@ export class FaceEngine {
     this.publish({ frame, features, mood, quality, meters })
   }
 
-  private stepCalibration(calibration: Calibration, frame: FaceFrame, quality: QualityIssue | null): void {
-    const frames = quality ? calibration.frames : [...calibration.frames, frame]
+  private stepCalibration(
+    calibration: Calibration, frame: FaceFrame, blocking: QualityIssue | null, quality: QualityIssue | null,
+  ): void {
+    const frames = blocking || !frame.present ? calibration.frames : [...calibration.frames, frame]
     const elapsed = frame.t - calibration.startedAt
     const progress = Math.min(1, frames.length / Math.max(1, (CALIBRATION_MS / 1000) * 24))
     if (progress < 1) {

@@ -10,6 +10,7 @@ test('boards the train and coaches when no face is visible', async ({ page }) =>
   await page.goto('/')
   await expect(page.getByRole('heading', { name: /Ночной/ })).toBeVisible()
   await page.getByRole('button', { name: 'Сесть в поезд' }).click()
+  await page.getByRole('button', { name: 'Пропустить' }).click() // skip the intro
 
   await expect(page.getByText('Проверка билета', { exact: false })).toBeVisible({ timeout: 30_000 })
   await expect(page.getByText('Не вижу лица — сядь напротив камеры')).toBeVisible({ timeout: 30_000 })

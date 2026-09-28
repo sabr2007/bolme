@@ -9,6 +9,7 @@ test.skip(!existsSync(FACE_VIDEO), 'run `npm run e2e:fixture` first to build the
 test('recognizes calibration, smile, frown and a head turn from a real-looking face', async ({ page }) => {
   await page.goto('/')
   await page.getByRole('button', { name: 'Сесть в поезд' }).click()
+  await page.getByRole('button', { name: 'Пропустить' }).click() // the intro is covered by the journey test
   const panel = page.locator('.ticket-panel')
 
   await expect(panel).toHaveAttribute('data-passed', '1', { timeout: 15_000 }) // calibration
