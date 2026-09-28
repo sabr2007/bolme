@@ -5,12 +5,13 @@ import { Reflection } from './components/Reflection'
 import { FaceEngine } from './engine/faceEngine'
 import { FaceEngineContext, useEngineSelector } from './engine/useFaceEngine'
 import { FilmScreen, type FilmResult } from './screens/FilmScreen'
+import { IntroScreen } from './screens/IntroScreen'
 import { ResultScreen } from './screens/ResultScreen'
 import { TicketCheck } from './screens/TicketCheck'
 import { TitleScreen } from './screens/TitleScreen'
 import { NIGHT_TRAIN } from './story/nightTrain'
 
-type Phase = 'title' | 'ticket' | 'film' | 'result'
+type Phase = 'title' | 'intro' | 'ticket' | 'film' | 'result'
 
 const DEBUG = new URLSearchParams(window.location.search).has('debug')
 
@@ -25,7 +26,7 @@ function Journey({ engine, sound }: { engine: FaceEngine; sound: Soundscape }) {
 
   const board = useCallback(async () => {
     sound.start()
-    if (camera.current && (await engine.start(camera.current))) setPhase('ticket')
+    if (camera.current && (await engine.start(camera.current))) setPhase('intro')
   }, [engine, sound])
 
   const endFilm = useCallback((filmResult: FilmResult) => {
@@ -33,6 +34,7 @@ function Journey({ engine, sound }: { engine: FaceEngine; sound: Soundscape }) {
     setPhase('result')
   }, [])
 
+  const startTicket = useCallback(() => setPhase('ticket'), [])
   const startFilm = useCallback(() => setPhase('film'), [])
 
   const replay = useCallback(() => {
@@ -44,6 +46,7 @@ function Journey({ engine, sound }: { engine: FaceEngine; sound: Soundscape }) {
     <>
       <video ref={camera} className="visually-hidden" playsInline muted aria-hidden="true" />
       {phase === 'title' && <TitleScreen status={status} error={error} onBoard={board} />}
+      {phase === 'intro' && <IntroScreen onDone={startTicket} />}
       {phase === 'ticket' && <TicketCheck sound={sound} onDone={startFilm} />}
       {phase === 'film' && <FilmScreen key={ride} story={NIGHT_TRAIN} sound={sound} onEnd={endFilm} />}
       {phase === 'result' && result && <ResultScreen story={NIGHT_TRAIN} result={result} onReplay={replay} />}

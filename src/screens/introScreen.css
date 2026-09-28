@@ -1,0 +1,160 @@
+.intro-screen { position: absolute; inset: 0; overflow: hidden; background: #000; }
+
+.intro-bg video { animation: intro-push 30s linear forwards; }
+
+@keyframes intro-push { from { transform: scale(1); } to { transform: scale(1.12); } }
+
+.intro-scrim {
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  pointer-events: none;
+  background:
+    linear-gradient(180deg, rgb(3 5 10 / 0.55) 0%, transparent 35%, transparent 55%, rgb(3 5 10 / 0.85) 100%);
+  transition: background var(--duration-slow);
+}
+
+.intro-screen[data-card='gestures'] .intro-scrim,
+.intro-screen[data-card='ticket'] .intro-scrim { background: rgb(3 5 10 / 0.72); }
+
+.intro-card {
+  position: absolute;
+  left: var(--gutter);
+  right: var(--gutter);
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  max-width: 1040px;
+  margin: 0 auto;
+  display: grid;
+  gap: 18px;
+  justify-items: center;
+  text-align: center;
+  animation: card-in 900ms var(--ease-out-expo);
+}
+
+.intro-kicker {
+  margin: 0;
+  font-size: var(--text-xs);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--amber);
+}
+
+.intro-title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: var(--text-title);
+  font-weight: 500;
+  line-height: 1.06;
+  text-wrap: balance;
+  text-shadow: 0 4px 30px rgb(0 0 0 / 0.8);
+}
+
+.intro-body {
+  margin: 0;
+  max-width: 58ch;
+  font-size: var(--text-base);
+  line-height: 1.6;
+  color: var(--text-dim);
+}
+
+.intro-gestures {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: clamp(8px, 1.6vw, 18px);
+  width: 100%;
+  margin: 8px 0;
+  padding: 0;
+  list-style: none;
+}
+
+.intro-gestures li {
+  display: grid;
+  justify-items: center;
+  gap: 8px;
+  padding: 24px 12px 20px;
+  border-radius: 18px;
+  color: var(--text);
+  background: color-mix(in oklch, var(--ink-800) 70%, transparent);
+  border: 1px solid color-mix(in oklch, var(--amber) 22%, transparent);
+  opacity: 0;
+  animation: card-in 700ms var(--ease-out-expo) forwards;
+}
+
+.intro-gestures li:nth-child(1) { animation-delay: 100ms; }
+.intro-gestures li:nth-child(2) { animation-delay: 280ms; }
+.intro-gestures li:nth-child(3) { animation-delay: 460ms; }
+.intro-gestures li:nth-child(4) { animation-delay: 640ms; }
+.intro-gestures li:nth-child(5) { animation-delay: 820ms; }
+
+.intro-gestures svg { color: var(--amber); }
+.intro-gestures strong { font-family: var(--font-display); font-size: clamp(1.3rem, 1rem + 0.8vw, 1.75rem); font-weight: 600; line-height: 1.1; }
+.intro-gestures span { font-size: var(--text-sm); color: var(--text-dim); }
+
+.intro-footer {
+  position: absolute;
+  left: var(--gutter);
+  right: var(--gutter);
+  bottom: clamp(18px, 4vh, 40px);
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+}
+
+.intro-progress { display: flex; gap: 8px; margin: 0; padding: 0; list-style: none; }
+.intro-progress li {
+  position: relative;
+  width: 44px;
+  height: 3px;
+  border-radius: 3px;
+  overflow: hidden;
+  background: color-mix(in oklch, var(--text) 22%, transparent);
+}
+.intro-progress li.is-done { background: var(--amber); }
+.intro-progress li span {
+  position: absolute;
+  inset: 0;
+  background: var(--amber);
+  transform-origin: left;
+  animation: fill linear forwards;
+}
+
+@keyframes fill { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+@keyframes card-in { from { opacity: 0; transform: translateY(14px); filter: blur(6px); } to { opacity: 1; transform: none; filter: none; } }
+
+.intro-card { animation-name: intro-card-in; }
+@keyframes intro-card-in { from { opacity: 0; filter: blur(8px); } to { opacity: 1; filter: none; } }
+
+.intro-skip {
+  border: 0;
+  background: none;
+  cursor: pointer;
+  font-size: var(--text-xs);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+.intro-skip:hover { color: var(--text); }
+.intro-skip:focus-visible { outline: 2px solid var(--moon); outline-offset: 4px; }
+
+/* phones: the reflection window owns the top-right corner, so the card starts below it and the
+   gesture guide becomes a compact list */
+@media (max-width: 720px) {
+  .intro-card { top: calc(var(--gutter) + 118px); transform: none; gap: 12px; }
+  .intro-gestures { grid-template-columns: 1fr; gap: 8px; margin: 0; }
+  .intro-gestures li {
+    grid-template-columns: 40px auto 1fr;
+    align-items: center;
+    justify-items: start;
+    gap: 12px;
+    padding: 10px 14px;
+    text-align: left;
+  }
+  .intro-gestures li svg { width: 36px; height: 36px; }
+  .intro-gestures span { justify-self: end; }
+}
